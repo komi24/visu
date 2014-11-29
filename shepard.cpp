@@ -13,7 +13,10 @@ Station::Station(const float longitude, const float lattitude, const float value
 }
 
 
-
+// erkan : 
+// - dans mes classes stations est plutot en std::vector que list l'itérateur marche de la même façon
+// - du coup ta classe station n'est plus utile, y'a la mienne dans un fichier séparé
+//    donc faudrait que tu ajoutes le fichier Station.h
 static float ComputeShepardInterpolation(const float longitude, const float lattitude,  std::list<Station> &stations) {
 float inv = 0;
  float res = 0;
@@ -35,6 +38,11 @@ for (list<Station>::iterator it = stations.begin(); it != stations.end(); it++) 
  return res;
 }
 
+// erkan : pour lancer le parsing
+//  - tu déclares un parser "Parser p;"
+//  - puis "p.parseFile(Jour désiré, Heure désirée);" avec
+//      1 <= jour <= 11 et 0 <= heure <= 23
+//  - et après p.stations suffit pour avoir la liste des stations
 int main( int argc, const char* argv[] )
 {
    Station *station1 = new Station(10.0,10.0,1.50);
