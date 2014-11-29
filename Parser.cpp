@@ -10,6 +10,7 @@ void Parser::parseFile(int day, int hour) {
     this->stations.clear();
     Station s;
     Book* book1 = xlCreateBook();
+    const char* string;
 
 
     if(book1) {              
@@ -22,11 +23,13 @@ void Parser::parseFile(int day, int hour) {
                 for (int i = 0; i < 25; i++) {
                     float longitude = sheet1->readNum(i, 0);
                     float latitude = sheet1->readNum(i, 1);
-                    float value  = sheet1->readNum(i, 3 + (day - 1)*24 + hour);
-                    s = Station(longitude, latitude, value);
-                    this->stations.push_back(s);
-
-                    std::cout << "Longitude : " << longitude << " Latitude : " << latitude << " Résultat : " <<  value << std::endl;
+                    int value  = sheet1->readNum(i, 3 + (day - 1)*24 + hour);
+                    string = sheet1->readStr(i, 3 + (day - 1)*24 + hour);
+                    if ((value != 0) || (value == 0 && string == NULL)) {
+                        s = Station(longitude, latitude, value);
+                        this->stations.push_back(s);
+                        std::cout << "Longitude : " << longitude << " Latitude : " << latitude << " Résultat : " <<  value << std::endl;
+                    }
                 }
             }
         }
@@ -43,14 +46,16 @@ void Parser::parseFile(int day, int hour) {
             Sheet* sheet2 = book2->getSheet(0);
             if(sheet2) {   
 
-                for (int i = 25; i < 49; i++) {
+                for (int i = 0; i < 25; i++) {
                     float longitude = sheet2->readNum(i, 0);
                     float latitude = sheet2->readNum(i, 1);
-                    float value  = sheet2->readNum(i, 3 + (day - 1)*24 + hour);
-                    s = Station(longitude, latitude, value);
-                    this->stations.push_back(s);
-
-                    std::cout << "Longitude : " << longitude << " Latitude : " << latitude << " Résultat : " <<  value << std::endl;
+                    int value  = sheet2->readNum(i, 3 + (day - 1)*24 + hour);
+                    string = sheet2->readStr(i, 3 + (day - 1)*24 + hour);
+                    if ((value != 0) || (value == 0 && string == NULL)) {
+                        s = Station(longitude, latitude, value);
+                        this->stations.push_back(s);
+                        std::cout << "Longitude : " << longitude << " Latitude : " << latitude << " Résultat : " <<  value << std::endl;
+                    }
                 }
             }
         }
