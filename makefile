@@ -13,7 +13,7 @@ CFLAGS = -I ./libxl/include_cpp -L $(LIBPATH) -lxl -Wl,-rpath,$(LIBPATH)
 all: main
 
 main: main.cpp
-	$(CC) -o main main.cpp $(CFLAGS)
+	$(CC) -o main Parser.cpp Station.cpp KmlFactory.cpp main.cpp $(CFLAGS)
 
 clean:
 	rm main

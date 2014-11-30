@@ -5,11 +5,11 @@ using namespace std;
 void KmlFactory::parseData(int day, int hour){
   this->parser = new Parser();
   this->parser->parseFile(day,hour);
-  limitW = parser->stations.begin().longitude;
+  limitW = parser->stations.begin()->longitude;
   limitE = limitE;
-  limitN = parser->stations.begin().latitude;
+  limitN = parser->stations.begin()->latitude;
   limitS = limitN;
-  domainMin = parser->stations.begin().value;
+  domainMin = parser->stations.begin()->value;
   domainMax = domainMin;
 
   for(vector<Station>::iterator it = parser->stations.begin();
@@ -23,10 +23,12 @@ void KmlFactory::parseData(int day, int hour){
     if(limitS > it->latitude)
       limitS = it->latitude;
     if(domainMin > it->value)
-      dmainMin = it->value;
+      domainMin = it->value;
     if(domainMax > it->value)
       domainMax = it->value;
   }
+  cout << limitS << " " << limitN << "  " << limitW << "  " << limitE <<endl;
+  cout << domainMin << " " << domainMax << endl;
 
 }
 
