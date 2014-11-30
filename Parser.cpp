@@ -26,7 +26,7 @@ void Parser::parseFile(int day, int hour) {
                     int value  = sheet1->readNum(i, 3 + (day - 1)*24 + hour);
                     string = sheet1->readStr(i, 3 + (day - 1)*24 + hour);
                     if ((value != 0) || (value == 0 && string == NULL)) {
-                        s = Station(longitude, latitude, value);
+                        s = Station(longitude, latitude, (float) value);
                         this->stations.push_back(s);
                         std::cout << "Longitude : " << longitude << " Latitude : " << latitude << " Résultat : " <<  value << std::endl;
                     }
@@ -52,7 +52,7 @@ void Parser::parseFile(int day, int hour) {
                     int value  = sheet2->readNum(i, 3 + (day - 1)*24 + hour);
                     string = sheet2->readStr(i, 3 + (day - 1)*24 + hour);
                     if ((value != 0) || (value == 0 && string == NULL)) {
-                        s = Station(longitude, latitude, value);
+                        s = Station(longitude, latitude, (float)value);
                         this->stations.push_back(s);
                         std::cout << "Longitude : " << longitude << " Latitude : " << latitude << " Résultat : " <<  value << std::endl;
                     }

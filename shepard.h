@@ -9,17 +9,7 @@
 #include <list>
 #include <cmath>
 #include <fstream>
-
-
-class Station
-{
-public:
-  float longitude;
-  float lattitude;
-  float value;
-Station(float,float,float);
-
-};
+#include "Station.h"
 
 static float ComputeShepardInterpolation(const float longitude, const float lattitude,  std::list<Station> &stations);
 

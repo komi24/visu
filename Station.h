@@ -10,11 +10,11 @@ class Station
     public:
 
     Station(){};
-    Station(float longitude, float latitude, int value);
+    Station(float longitude, float latitude, float value);
 
     float longitude;
     float latitude;
-    int value;
+    float value;
 };
 
 #endif
