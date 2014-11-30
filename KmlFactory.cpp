@@ -4,7 +4,7 @@ using namespace std;
 
 void KmlFactory::parseData(int day, int hour){
   this->parser = new Parser();
-  cerr << "day =" << day << " hour =" << hour << endl;
+  this->parser->parseFile(day,hour);
 }
 
 void KmlFactory::setInterp(float(*f)(float,float)){
@@ -12,8 +12,7 @@ void KmlFactory::setInterp(float(*f)(float,float)){
 }
 
 void KmlFactory::interpolate(float step){
-  //TODO
-  this->interp(0.2,0.3);
+  //TODO generate the list of points step by step
 }
 
 void KmlFactory::updateIsocont(float val){

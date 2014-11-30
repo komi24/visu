@@ -1,33 +1,17 @@
-
-
 #include "shepard.h"
 using namespace std;
 
-Station::Station(const float longitude, const float lattitude, const float value){
-	this->longitude = longitude;
-
-	this->lattitude = lattitude;
-
-	this->value = value;
-
-}
-
-
-// erkan : 
-// - dans mes classes stations est plutot en std::vector que list l'itérateur marche de la même façon
-// - du coup ta classe station n'est plus utile, y'a la mienne dans un fichier séparé
-//    donc faudrait que tu ajoutes le fichier Station.h
-static float ComputeShepardInterpolation(const float longitude, const float lattitude,  std::list<Station> &stations) {
+static float ComputeShepardInterpolation(const float longitude, const float lattitude,  std::vector<Station> &stations) {
 float inv = 0;
  float res = 0;
 
-  for (list<Station>::iterator it = stations.begin(); it != stations.end(); it++) {
+  for (vector<Station>::iterator it = stations.begin(); it != stations.end(); it++) {
     inv += 1/(pow((lattitude - it->lattitude),2) + pow((longitude - it->longitude),2));
 
 
   }
 
-for (list<Station>::iterator it = stations.begin(); it != stations.end(); it++) {
+for (vector<Station>::iterator it = stations.begin(); it != stations.end(); it++) {
   res += (1/(pow((lattitude - it->lattitude),2) + pow((longitude - it->longitude),2)))*it->value  ;
 
   }
