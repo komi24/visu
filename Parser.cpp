@@ -11,7 +11,9 @@ void Parser::parseFile(int day, int hour) {
     Station s;
     Book* book1 = xlCreateBook();
     const char* string;
-
+    float longitude;  
+    float latitude;
+    int value;
 
     if(book1) {
 
@@ -21,9 +23,9 @@ void Parser::parseFile(int day, int hour) {
             if(sheet1) {
 
                 for (int i = 0; i < 25; i++) {
-                    float longitude = sheet1->readNum(i, 0);
-                    float latitude = sheet1->readNum(i, 1);
-                    int value  = sheet1->readNum(i, 3 + (day - 1)*24 + hour);
+                    longitude = sheet1->readNum(i, 0);
+                    latitude = sheet1->readNum(i, 1);
+                    value  = sheet1->readNum(i, 3 + (day - 1)*24 + hour);
                     string = sheet1->readStr(i, 3 + (day - 1)*24 + hour);
                     if ((value != 0) || (value == 0 && string == NULL)) {
                         s = Station(longitude, latitude, (float) value);
@@ -47,9 +49,9 @@ void Parser::parseFile(int day, int hour) {
             if(sheet2) {   
 
                 for (int i = 0; i < 25; i++) {
-                    float longitude = sheet2->readNum(i, 0);
-                    float latitude = sheet2->readNum(i, 1);
-                    int value  = sheet2->readNum(i, 3 + (day - 1)*24 + hour);
+                    longitude = sheet2->readNum(i, 0);
+                    latitude = sheet2->readNum(i, 1);
+                    value  = sheet2->readNum(i, 3 + (day - 1)*24 + hour);
                     string = sheet2->readStr(i, 3 + (day - 1)*24 + hour);
                     if ((value != 0) || (value == 0 && string == NULL)) {
                         s = Station(longitude, latitude, (float)value);
