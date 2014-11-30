@@ -9,7 +9,7 @@ class Station
 {
     public:
 
-    Station();
+    Station(){};
     Station(float longitude, float latitude, int value);
 
     float longitude;

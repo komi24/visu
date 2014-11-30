@@ -11,7 +11,7 @@
 class Parser {
 
 	public:
-		Parser();
+		Parser() {};
 		void parseFile(int day, int hour);
 
 		std::vector<Station> stations;

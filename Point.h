@@ -4,5 +4,6 @@
 class Point {
   public :
     float x,y,val;
-}
+    Point() {};
+};
 #endif

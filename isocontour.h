@@ -2,11 +2,7 @@
 #define DEF_ISOCONTOUR
 
 #include <iostream>
-
-class Segment {
-  public:
-    float x1,x2,y1,y2
-}
+#include "Segment.h"
 
 std::vector<Segment> computeElementary(const float *coorx, const float *coory, const float *val,
     const float step, float(*interp)(float, float));
