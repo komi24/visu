@@ -17,6 +17,8 @@ class kmlFactory {
 
   public :
     kmlFactory();
+    //parse le fichier et initialise les limites W,E,N,S et domainMax et Min
+    //parser non NULL après appel
     void parseData(int day, int hour);
     void setInterp(float(*f)(float,float));
     void interpolate(float step);//Define limits before truely interpolate, create png and kml
