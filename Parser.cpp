@@ -13,12 +13,12 @@ void Parser::parseFile(int day, int hour) {
     const char* string;
 
 
-    if(book1) {              
+    if(book1) {
 
         if(book1->load("mesures.xls")) {
 
             Sheet* sheet1 = book1->getSheet(0);
-            if(sheet1) {   
+            if(sheet1) {
 
                 for (int i = 0; i < 25; i++) {
                     float longitude = sheet1->readNum(i, 0);
@@ -34,7 +34,7 @@ void Parser::parseFile(int day, int hour) {
             }
         }
 
-        book1->release();   
+        book1->release();
     }
 
     Book* book2 = xlCreateBook();
